@@ -13,6 +13,7 @@ class CucumberishInitializer: NSObject {
         beforeStart { () -> Void in
             app = XCUIApplication()
         }
+        
         //A Given step definition
         Given("the app is running") { (args, userInfo) -> Void in
             app.launch()
@@ -44,6 +45,16 @@ class CucumberishInitializer: NSObject {
             //Assume you defined an "I tap on \"(.*)\" button" step previousely, you can call it from your code as well.
             SStep("I tap the \"Clear All Data\" button")
         }
+        
+        //A Given step definition
+        Given("that this is another step") { (args, userInfo) -> Void in
+            app.launch()
+            
+            let changeButton = app.buttons["Change"]
+            changeButton.tap()
+            changeButton.tap()
+        }
+        
         //Tell Cucumberish the name of your features folder and let it execute them for you...
         Cucumberish.executeFeaturesInDirectory("Features", featureTags: nil)
     }
