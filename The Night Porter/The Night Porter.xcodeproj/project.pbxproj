@@ -56,6 +56,7 @@
 		0C2C53EF1D4B647E0076C1D1 /* NSString+Trim.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2C53BD1D4B647E0076C1D1 /* NSString+Trim.m */; };
 		0C2C53F01D4B647E0076C1D1 /* NSObject+Dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2C53C01D4B647E0076C1D1 /* NSObject+Dictionary.m */; };
 		0C2C53F11D4B647E0076C1D1 /* NSString+Formatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2C53C21D4B647E0076C1D1 /* NSString+Formatter.m */; };
+		0C2C53F31D4B6F4A0076C1D1 /* Features in Resources */ = {isa = PBXBuildFile; fileRef = 0C2C53F21D4B6F4A0076C1D1 /* Features */; };
 		0CDE9F081D4A18950044E61F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE9F071D4A18950044E61F /* AppDelegate.swift */; };
 		0CDE9F0A1D4A18950044E61F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDE9F091D4A18950044E61F /* ViewController.swift */; };
 		0CDE9F0D1D4A18950044E61F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CDE9F0B1D4A18950044E61F /* Main.storyboard */; };
@@ -198,6 +199,7 @@
 		0C2C53C01D4B647E0076C1D1 /* NSObject+Dictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Dictionary.m"; sourceTree = "<group>"; };
 		0C2C53C11D4B647E0076C1D1 /* NSString+Formatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Formatter.h"; sourceTree = "<group>"; };
 		0C2C53C21D4B647E0076C1D1 /* NSString+Formatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Formatter.m"; sourceTree = "<group>"; };
+		0C2C53F21D4B6F4A0076C1D1 /* Features */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Features; path = ../../../Features; sourceTree = "<group>"; };
 		0CDE9F041D4A18950044E61F /* The Night Porter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Night Porter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CDE9F071D4A18950044E61F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CDE9F091D4A18950044E61F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 		0C2C53561D4B647E0076C1D1 /* Cucumberish */ = {
 			isa = PBXGroup;
 			children = (
+				0C2C53F21D4B6F4A0076C1D1 /* Features */,
 				0C2C53571D4B647E0076C1D1 /* Core */,
 				0C2C53731D4B647E0076C1D1 /* Cucumberish.h */,
 				0C2C53741D4B647E0076C1D1 /* Cucumberish.m */,
@@ -607,6 +610,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C2C53D61D4B647E0076C1D1 /* gherkin-languages.json in Resources */,
+				0C2C53F31D4B6F4A0076C1D1 /* Features in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

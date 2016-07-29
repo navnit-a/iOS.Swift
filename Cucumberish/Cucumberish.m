@@ -1,4 +1,4 @@
-
+//
 //  Cucumberish.m
 //
 //  Created by Ahmed Ali on 03/01/16.
@@ -140,7 +140,7 @@ OBJC_EXTERN NSString * stepDefinitionLineForStep(CCIStep * step);
  @param array of CCIHock to be executed
  @param scenario the scenario that will be passed to each matching hocks.
  */
-
+ 
 - (void)executeMatchingHocksInHocks:(NSArray<CCIHock *> *)hocks forScenario:(CCIScenarioDefinition *)scenario
 {
     for(CCIHock * hock in hocks){
@@ -422,7 +422,7 @@ void executeScenario(XCTestCase * self, SEL _cmd, CCIScenarioDefinition * scenar
     }
     
     [[Cucumberish instance] executeAroundHocksWithScenario:scenario executionBlock:^{
-        executeSteps(self, scenario.steps, scenario);
+       executeSteps(self, scenario.steps, scenario);
     }];
     [[Cucumberish instance] executeAfterHocksWithScenario:scenario];
     
@@ -434,13 +434,12 @@ void executeScenario(XCTestCase * self, SEL _cmd, CCIScenarioDefinition * scenar
 void executeSteps(XCTestCase * testCase, NSArray * steps, id parentScenario)
 {
     
-//    NSString * targetName = [[Cucumberish instance] testTargetFolderName] ? : [[NSBundle bundleForClass:[Cucumberish class]] infoDictionary][@"CFBundleName"];
-    NSString * targetName = [[Cucumberish instance] testTargetFolderName];
-    //NSString * srcRoot = SRC_ROOT;
+    NSString * targetName = [[Cucumberish instance] testTargetFolderName] ? : [[NSBundle bundleForClass:[Cucumberish class]] infoDictionary][@"CFBundleName"];
+    NSString * srcRoot = SRC_ROOT;
     //Clean up unwanted /Pods path caused by cocoa pods
-//    if([srcRoot hasSuffix:@"/Pods"]){
-//        srcRoot = [srcRoot stringByReplacingCharactersInRange:NSMakeRange(srcRoot.length - 5, 5) withString:@""];
-    //}
+    if([srcRoot hasSuffix:@"/Pods"]){
+        srcRoot = [srcRoot stringByReplacingCharactersInRange:NSMakeRange(srcRoot.length - 5, 5) withString:@""];
+    }
     
     for (CCIStep * step in steps) {
         
@@ -448,13 +447,13 @@ void executeSteps(XCTestCase * testCase, NSArray * steps, id parentScenario)
             [[CCIStepsManager instance] executeStep:step];
         }
         @catch (CCIExeption *exception) {
-//            NSString * filePath = [NSString stringWithFormat:@"%@/%@%@", srcRoot, targetName, step.location.filePath];
-//            [testCase recordFailureWithDescription:exception.reason inFile:filePath atLine:step.location.line expected:YES];
-//            if([parentScenario isKindOfClass:[CCIScenarioDefinition class]]){
-//                CCIScenarioDefinition * scenario = (CCIScenarioDefinition *)parentScenario;
-//                scenario.success = NO;
-//                scenario.failureReason = exception.reason;
-            //}
+            NSString * filePath = [NSString stringWithFormat:@"%@/%@%@", srcRoot, targetName, step.location.filePath];
+            [testCase recordFailureWithDescription:exception.reason inFile:filePath atLine:step.location.line expected:YES];
+            if([parentScenario isKindOfClass:[CCIScenarioDefinition class]]){
+                CCIScenarioDefinition * scenario = (CCIScenarioDefinition *)parentScenario;
+                scenario.success = NO;
+                scenario.failureReason = exception.reason;
+            }
             break;
         }
     }
@@ -525,4 +524,7 @@ void around(NSArray * tags, CCIScenarioExecutionHockBlock aroundScenarioBlock)
 {
     [[Cucumberish instance] addAroundHock:[CCIAroundHock hockWithTags:tags block:aroundScenarioBlock]];
 }
+
+
+
 
