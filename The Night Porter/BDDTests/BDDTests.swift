@@ -8,15 +8,15 @@ import Foundation
 class CucumberishInitializer: NSObject {
     class func CucumberishSwiftInit()
     {
-        var application : XCUIApplication!
+        var app : XCUIApplication!
         //A closure that will be executed just before executing any of your features
         beforeStart { () -> Void in
-            application = XCUIApplication()
+            app = XCUIApplication()
         }
         //A Given step definition
         Given("the app is running") { (args, userInfo) -> Void in
-            application.launch()
-            let app = XCUIApplication()
+            app.launch()
+            //let app = XCUIApplication()
             let funkyButton = app.buttons["Funky"]
             funkyButton.tap()
             
